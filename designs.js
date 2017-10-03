@@ -11,7 +11,7 @@ window.onload = () => {
     p.draw = function() {
       p.background(102);
       p.rectMode(p.CENTER);
-      p.rect( p.width/2, p.height/2, 150, 100, 20 );
+      p.rect(p.width/2, p.height/2, 150, 100, 20);
     }
   }
 
