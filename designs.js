@@ -67,13 +67,13 @@ window.onload = () => {
         let x = p.width/2 + n * p.cos(a);
         let y = p.height/2 + n * p.sin(a);
         
-        vertex(x, y);
+        p.vertex(x, y);
     
-        xoff += 0.1;
+        p.xoff += 0.1;
       }
-      endShape(CLOSE);
+      p.endShape(CLOSE);
       
-      yoff += 0.05;
+      p.yoff += 0.05;
     }
   }
   
