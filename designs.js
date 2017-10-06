@@ -78,5 +78,33 @@ window.onload = () => {
   }
   
   publish(wigglingCloud, "Wiggling Cloud", "Simon Tiger Houben");
-
+  
+  function bubble_raindrops(p) {
+    p.r = 275;
+    p.innerR = 4;
+    
+    p.setup = function() {
+      p.createCanvas(749, 768);
+    }
+    
+    p.draw = function() {
+      p.background(0, 191, 255);
+      p.translate(p.width/2, p.height/2);
+      
+      p.fill(255, 150);
+      p.noStroke();
+      p.ellipse(0, 0, p.r*2, p.r*2);
+      
+      for (let i = 0; i < 100; i++) {
+        let v = p5.Vector.random2D();
+        v.mult(p.random(0, p.r-p.innerR));
+        
+        p.ellipse(v.x, v.y, p.innerR*2, p.innerR*2);
+      }
+      
+      p.noLoop();
+    }
+  }
+  
+  publish(bubble_raindrops, "Bubble with Raindrops", "Simon Tiger Houben");
 }
