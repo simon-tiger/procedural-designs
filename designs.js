@@ -71,7 +71,7 @@ window.onload = () => {
     
         p.xoff += 0.1;
       }
-      p.endShape(CLOSE);
+      p.endShape(p.CLOSE);
       
       p.yoff += 0.05;
     }
