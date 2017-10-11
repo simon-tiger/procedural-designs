@@ -107,4 +107,61 @@ window.onload = () => {
   }
   
   publish(bubble_raindrops, "Bubble with Raindrops", "Simon Tiger Houben");
+  
+  function the_storm(p) {
+    
+    p.setup = function () { 
+      p.createCanvas(400, 400);
+    }
+
+    function drawWater() {
+  
+      p.strokeWeight(2);
+      for (var i = 350; i < 400; ++i) {
+    
+        // Which way should the gradient go?
+        var s = p.random() > 0.5 ? 1 : -1;
+        var b = p.floor(s == -1 ? p.random(100, 255) : p.random(50, 100)); // Tone increment
+        for (var j = 0; j < 400; ++j) {
+      
+          p.stroke(0, 0, b);
+          p.point(j, i + p.random(-20, 20)); // Random height change
+          b+=(s * 5);            
+        }
+      }
+    }
+
+    function drawRain()
+    {
+	    
+      p.strokeWeight(2);
+  	  for (var i = 0; i < 400; i+=5) {
+    	
+        // Random positio, inclnation and height
+        p.stroke(p.random(25, 100));
+        p.push();
+        p.rotate(p.random(-p.PI / 10, p.PI / 10));
+        p.line(i, p.floor(p.random(0, 150)), i, p.floor(p.random(175, 375)));
+        p.pop();
+      }
+    }
+
+    p.draw = function () { 
+  
+      p.push();
+      p.noStroke();
+      
+      for (var i = 0; i < 6; ++i) {
+  	
+        p.fill(20 + (i * 10));
+        p.rect(0, i * 50, 400, 50);
+      }
+  
+      drawWater();
+      drawRain();
+      p.pop();
+    }
+  }
+  
+  publish(the_storm, "The Storm", "Juan Robles");
 }
